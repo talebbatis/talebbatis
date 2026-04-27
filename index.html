@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taleb A. Ba Tis — Quantum Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1a2e;
+      --navy-mid: #1a2a4a;
+      --navy-light: #243656;
+      --blue-accent: #4a8fe7;
+      --blue-soft: #6ba3ed;
+      --ice: #dce8f5;
+      --ice-light: #eef3fa;
+      --white: #f8fafc;
+      --text: #c8d6e5;
+      --text-muted: #8a9bb5;
+      --heading: #e8eff8;
+      --border: rgba(74, 143, 231, 0.15);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(15, 26, 46, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    nav .name-mark {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--heading);
+      letter-spacing: 0.02em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    nav .nav-links a:hover { color: var(--blue-accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(74,143,231,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: var(--heading);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--blue-soft);
+      font-weight: 400;
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero .tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.8;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.3rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+
+    .hero-links a:hover {
+      border-color: var(--blue-accent);
+      color: var(--blue-accent);
+      background: rgba(74, 143, 231, 0.06);
+    }
+
+
+    .hero-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      margin-bottom: 1.6rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    /* ── SECTIONS ── */
+    section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 0.6rem;
+    }
+
+    section h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--heading);
+      margin-bottom: 1.6rem;
+      line-height: 1.25;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    /* ── ABOUT ── */
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .about-text a {
+      color: var(--blue-soft);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(107, 163, 237, 0.3);
+      transition: border-color 0.25s;
+    }
+
+    .about-text a:hover { border-color: var(--blue-soft); }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .research-card {
+      padding: 1.5rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .research-card:hover {
+      border-color: rgba(74, 143, 231, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .research-card h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--heading);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .research-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .pub-item {
+      padding: 1.2rem 1.4rem;
+      background: var(--navy-mid);
+      border-left: 3px solid var(--blue-accent);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .pub-title {
+      font-weight: 500;
+      color: var(--heading);
+      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .pub-journal {
+      color: var(--blue-soft);
+      font-style: italic;
+    }
+
+    /* ── CV ── */
+    .cv-section { margin-bottom: 2.4rem; }
+
+    .cv-section h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--heading);
+      margin-bottom: 1rem;
+    }
+
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.3rem 2rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cv-entry:last-child { border-bottom: none; }
+
+    .cv-role {
+      font-weight: 500;
+      color: var(--heading);
+      font-size: 0.92rem;
+    }
+
+    .cv-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .cv-org {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      grid-column: 1 / -1;
+    }
+
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--blue-accent);
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+
+    .cv-download:hover { background: var(--blue-soft); }
+
+    /* ── SKILLS ── */
+    .skills-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-group-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      padding: 0.3rem 0.7rem;
+      background: rgba(74, 143, 231, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      padding: 1.2rem 1.4rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: border-color 0.25s, transform 0.25s;
+      display: block;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(74, 143, 231, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-size: 0.92rem;
+      color: var(--heading);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 { animation: fadeUp 0.7s ease both; }
+    .hero .subtitle { animation: fadeUp 0.7s 0.1s ease both; }
+    .hero .tagline { animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-links { animation: fadeUp 0.7s 0.3s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .research-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav .nav-links { gap: 1rem; }
+      nav .nav-links a { font-size: 0.75rem; }
+
+      .cv-entry {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-date { text-align: left; }
+
+      section { padding: 3.5rem 1.4rem; }
+    }
+
+    @media (max-width: 420px) {
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="name-mark">T. Ba Tis</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <img class="hero-photo" src="headshot.jpg" alt="Taleb A. Ba Tis">
+      <h1>Taleb A. Ba Tis</h1>
+      <p class="subtitle">Postdoctoral Fellow · University of British Columbia</p>
+      <p class="tagline">
+        Experimentalist working on quantum transduction at the intersection of nanophotonics, solid-state physics, and quantum science.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:talebbatis73@gmail.com">✉ Email</a>
+        <a href="https://scholar.google.com/" target="_blank">🎓 Google Scholar</a>
+        <a href="#cv">📄 CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <h2>Background</h2>
+    <div class="divider"></div>
+    <div class="about-text">
+      <p>
+        I am a postdoctoral fellow in the <a href="https://sites.google.com/view/ubcqtl/home" target="_blank">Quantum Science and Technology Laboratory</a> at UBC, led by Dr. Joseph Salfi. My current research focuses on quantum transduction in hybrid semiconductor–superconductor systems, exploring how to bridge quantum information between microwave and optical domains.
+      </p>
+      <p>
+        I received my Ph.D. in Materials Engineering from the University of Colorado Boulder (2024), where I worked in the Nanophotonics Lab under Dr. Won Park. My doctoral research centered on nanostructured materials for optical sensing, including hybrid plasmonic–upconversion optomechanical sensors and magneto-optical nanocomposite thin films.
+      </p>
+      <p>
+        Prior to joining UBC, I worked as a Product Manager at MSE Supplies LLC, where I translated customer requirements into specifications for nanotechnology and photonics products. I hold a B.S. in Materials Science &amp; Engineering from North Carolina State University, with a minor in Physics.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <p class="section-label">Research</p>
+    <h2>Research Interests</h2>
+    <div class="divider"></div>
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Quantum Transduction</h3>
+        <p>Microwave-to-optical conversion using hybrid semiconductor–superconductor platforms for quantum networks.</p>
+      </div>
+      <div class="research-card">
+        <h3>Spin-Based Quantum Systems</h3>
+        <p>Spin-cavity coupling, spin-ensemble dynamics, and solid-state defect centers in silicon for quantum information.</p>
+      </div>
+      <div class="research-card">
+        <h3>Nanophotonics &amp; Plasmonics</h3>
+        <p>Near-field light–matter interactions, upconversion nanoparticles, and plasmonic nanostructures for sensing.</p>
+      </div>
+      <div class="research-card">
+        <h3>Magneto-Optical Materials</h3>
+        <p>Rare-earth-doped magnetic nanocomposites with engineered Verdet constants for Faraday-effect sensing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <p class="section-label">Publications</p>
+    <h2>Selected Works</h2>
+    <div class="divider"></div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">High-Verdet constant and low-optical loss Tb³⁺ doped magnetite nanoparticles</div>
+        <div class="pub-meta"><strong>Ba Tis, T.</strong>, Bartos, J., et al. — <span class="pub-journal">Nano Letters</span> (2024)</div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">A scalable fabrication method for gold nanodisk–upconverting nanoparticle hybrid nanostructures</div>
+        <div class="pub-meta"><strong>Ba Tis, T.</strong>, Sabo, C., et al. — <span class="pub-journal">RSC Nanoscale</span> (2024)</div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Optical force sensor based on plasmon modulated upconversion luminescence</div>
+        <div class="pub-meta">Corbella Bagot, C., <strong>Ba Tis, T.</strong>, et al. — <span class="pub-journal">Applied Optical Materials</span> (2024)</div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">True FRET-based sensing of pH via separation of FRET and photon reabsorption</div>
+        <div class="pub-meta">Corbella Bagot, C., Rappeport, E., Das, A., <strong>Ba Tis, T.</strong>, et al. — <span class="pub-journal">Advanced Optical Materials</span> (2022)</div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Non-invasive plant disease diagnostics enabled by smartphone-based fingerprinting of leaf volatiles</div>
+        <div class="pub-meta">Li, Z., Paul, R., <strong>Ba Tis, T.</strong>, et al. — <span class="pub-journal">Nature Plants</span> (2019)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <p class="section-label">Curriculum Vitae</p>
+    <h2>Experience &amp; Education</h2>
+    <div class="divider"></div>
+
+    <div class="cv-section">
+      <h3>Experience</h3>
+      <div class="cv-entry">
+        <span class="cv-role">Postdoctoral Fellow</span>
+        <span class="cv-date">2025 – Present</span>
+        <span class="cv-org">University of British Columbia · Quantum Science and Technology Lab (Dr. J. Salfi)</span>
+      </div>
+      <div class="cv-entry">
+        <span class="cv-role">Product Manager</span>
+        <span class="cv-date">2024 – 2025</span>
+        <span class="cv-org">MSE Supplies LLC · Tucson, AZ</span>
+      </div>
+      <div class="cv-entry">
+        <span class="cv-role">Graduate Research Assistant</span>
+        <span class="cv-date">2020 – 2024</span>
+        <span class="cv-org">University of Colorado Boulder · Nanophotonics Lab (Dr. W. Park)</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Education</h3>
+      <div class="cv-entry">
+        <span class="cv-role">Ph.D., Materials Engineering</span>
+        <span class="cv-date">2019 – 2024</span>
+        <span class="cv-org">University of Colorado Boulder</span>
+      </div>
+      <div class="cv-entry">
+        <span class="cv-role">M.S., Materials Engineering</span>
+        <span class="cv-date">2019 – 2021</span>
+        <span class="cv-org">University of Colorado Boulder</span>
+      </div>
+      <div class="cv-entry">
+        <span class="cv-role">B.S., Materials Science &amp; Engineering</span>
+        <span class="cv-date">2015 – 2019</span>
+        <span class="cv-org">North Carolina State University · Minor in Physics</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Technical Skills</h3>
+      <div class="skills-group">
+        <div class="skills-group-label">Synthesis &amp; Fabrication</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Thermal Decomposition</span>
+          <span class="skill-tag">Seed-Mediated Growth</span>
+          <span class="skill-tag">Ligand Exchange</span>
+          <span class="skill-tag">PVD</span>
+          <span class="skill-tag">RIE</span>
+          <span class="skill-tag">Sputtering</span>
+          <span class="skill-tag">Laser Interference Lithography</span>
+          <span class="skill-tag">Photomask Lithography</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Characterization</div>
+        <div class="skill-tags">
+          <span class="skill-tag">TEM</span>
+          <span class="skill-tag">SEM</span>
+          <span class="skill-tag">AFM</span>
+          <span class="skill-tag">UV-VIS-NIR</span>
+          <span class="skill-tag">Raman</span>
+          <span class="skill-tag">Photoluminescence</span>
+          <span class="skill-tag">DLS</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Software</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">ImageJ</span>
+          <span class="skill-tag">Gwyddion</span>
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">MEEP</span>
+          <span class="skill-tag">GDS Factory</span>
+        </div>
+      </div>
+    </div>
+
+    <a class="cv-download" href="#" download>↓ Download Full CV (PDF)</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <h2>Get in Touch</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:talebbatis73@gmail.com">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">talebbatis73@gmail.com</div>
+      </a>
+      <a class="contact-item" href="https://scholar.google.com/" target="_blank">
+        <div class="contact-label">Google Scholar</div>
+        <div class="contact-value">View Profile →</div>
+      </a>
+      <a class="contact-item" href="#">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Vancouver, BC, Canada</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Taleb A. Ba Tis. Built with care.
+  </footer>
+
+</body>
+</html>
