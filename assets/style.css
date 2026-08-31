@@ -631,6 +631,55 @@ section h2 {
   text-align: center;
 }
 
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.4rem;
+  font-size: 0.9rem;
+}
+
+.post-body th,
+.post-body td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.post-body th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-accent);
+}
+
+.post-body tr:last-child td { border-bottom: none; }
+
+.post-body .figure-placeholder {
+  margin: 0 0 1.4rem;
+  padding: 2.6rem 1.5rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background: var(--navy-mid);
+}
+
+.post-body .figure-placeholder strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+}
+
 .post-footer {
   max-width: 760px;
   margin: 0 auto;

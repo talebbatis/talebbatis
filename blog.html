@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog & Tutorials — Taleb A. Ba Tis</title>
-  <meta name="description" content="Notes and tutorials on MEEP, FDTD simulation, and computational nanophotonics.">
+  <meta name="description" content="Notes and tutorials on MEEP, MPB, and computational nanophotonics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
@@ -31,7 +31,7 @@
     <p class="section-label">Blog</p>
     <h1>MEEP Tutorials &amp; Notes</h1>
     <p class="tagline">
-      Practical write-ups on running FDTD simulations in MEEP — setup, scripts, and the gotchas I ran into while modeling nanophotonic structures.
+      Practical write-ups on FDTD and eigenmode simulation with MEEP and MPB — setup, scripts, and the gotchas I ran into while modeling nanophotonic structures.
     </p>
   </div>
 
@@ -39,20 +39,20 @@
   <section id="posts">
     <div class="blog-grid">
 
-      <a class="blog-card" href="posts/getting-started-with-meep.html">
-        <div class="blog-card-meta">Tutorial · Aug 31, 2026</div>
-        <h3>Getting Started with MEEP: Your First FDTD Simulation</h3>
-        <p>Install MEEP, write a minimal simulation script, and run your first finite-difference time-domain simulation of a waveguide.</p>
+      <a class="blog-card" href="posts/slab-waveguide-mode-solver-mpb.html">
+        <div class="blog-card-meta">Photonics · Simulation · Aug 30, 2026</div>
+        <h3>Building a Slab Waveguide Mode Solver: From Lumerical Scripts to Open-Source MPB</h3>
+        <p>Translating a set of Lumerical MODE scripts for an SOI slab waveguide into a Python library built on MPB — the physics, the bugs, and the function-based library that came out the other end.</p>
         <div class="blog-card-tags">
-          <span class="skill-tag">MEEP</span>
-          <span class="skill-tag">FDTD</span>
+          <span class="skill-tag">MPB</span>
+          <span class="skill-tag">Silicon Photonics</span>
           <span class="skill-tag">Python</span>
         </div>
       </a>
 
       <!--
         To add a new post:
-        1. Copy posts/getting-started-with-meep.html to posts/your-post-slug.html
+        1. Copy posts/slab-waveguide-mode-solver-mpb.html to posts/your-post-slug.html
         2. Edit its title, meta, and post-body content
         3. Add a new .blog-card block above this comment, linking to the new file
       -->
